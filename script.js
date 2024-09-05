@@ -11,6 +11,9 @@ const cornerRadiusInput = document.getElementById('cornerRadius');
 const applyCornersBtn = document.getElementById('applyCorners');
 const applyFiltersBtn = document.getElementById('applyFilters');
 const applyTransformBtn = document.getElementById('applyTransform');
+const cancelFiltersBtn = document.getElementById('cancelFilters');
+const cancelTransformBtn = document.getElementById('cancelTransform');
+const cancelCornersBtn = document.getElementById('cancelCorners');
 
 let image = new Image();
 let originalImage = null;
@@ -108,14 +111,18 @@ function applyTemporaryTransformations() {
 
 // Mostrar modales
 transformBtn.addEventListener('click', () => {
+    tempFlipVertically = isFlippedVertically;
+    tempFlipHorizontally = isFlippedHorizontally;
     transformModal.style.display = 'block';
 });
 
 document.getElementById('filtersBtn').addEventListener('click', () => {
+    tempFilter = currentFilter;
     filtersModal.style.display = 'block';
 });
 
 document.getElementById('cornerBtn').addEventListener('click', () => {
+    tempCornerRadius = cornerRadius;
     cornerModal.style.display = 'block';
 });
 
@@ -126,6 +133,30 @@ Array.from(closeModal).forEach((element) => {
         cornerModal.style.display = 'none';
         transformModal.style.display = 'none';
     });
+});
+
+// Cancelar y cerrar modales sin aplicar cambios
+
+// Filtros
+cancelFiltersBtn.addEventListener('click', () => {
+    tempFilter = currentFilter; // Reset to previous state
+    filtersModal.style.display = 'none';
+    applyTransformations(); // Re-apply without changes
+});
+
+// Transformaciones
+cancelTransformBtn.addEventListener('click', () => {
+    tempFlipVertically = isFlippedVertically; // Reset to previous state
+    tempFlipHorizontally = isFlippedHorizontally;
+    transformModal.style.display = 'none';
+    applyTransformations(); // Re-apply without changes
+});
+
+// Esquinas
+cancelCornersBtn.addEventListener('click', () => {
+    tempCornerRadius = cornerRadius; // Reset to previous state
+    cornerModal.style.display = 'none';
+    applyTransformations(); // Re-apply without changes
 });
 
 // Aplicar filtros en tiempo real
