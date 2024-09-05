@@ -17,7 +17,7 @@ One of the standout features of **Pro Image Editor** is its real-time preview fu
 ## **Live Demo**
 
 You can use the app directly via **GitHub Pages**:  
-👉 [Live Demo on GitHub Pages](https://yourusername.github.io/pro-image-editor)
+👉 [Live Demo on GitHub Pages](https://yeilow7.github.io/photoedit/)
 
 ## **How to Use**
 
