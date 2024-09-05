@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pro Image Editor</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Pro Image Editor</h1>
+            <p>Edit your image with precision and style</p>
+        </header>
+
+        <div class="upload-section">
+            <input type="file" id="upload" accept="image/*">
+            <label for="upload" class="upload-btn">Upload Image</label>
+        </div>
+
+        <div class="actions-section">
+            <button class="action-btn" id="filtersBtn">Filtros</button>
+            <button class="action-btn" id="transformBtn">Transformar</button>
+            <button class="action-btn" id="cornerBtn">Esquinas</button>
+            <button class="action-btn download-btn" id="downloadBtn">Descargar</button>
+        </div>
+
+        <div class="image-preview">
+            <canvas id="canvas"></canvas>
+        </div>
+
+        <!-- Modal de filtros -->
+        <div id="filtersModal" class="modal hidden">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Aplicar Filtros</h2>
+                <div class="filters-grid">
+                    <button class="filter-btn" id="grayscale">
+                        <img src="grayscale.png" alt="Grayscale">
+                        <p>Grayscale</p>
+                    </button>
+                    <button class="filter-btn" id="blackwhite">
+                        <img src="blanco.jpg" alt="Blanco y Negro">
+                        <p>Blanco y Negro</p>
+                    </button>
+                    <button class="filter-btn" id="sharpen">
+                        <img src="afilar.png" alt="Afilado">
+                        <p>Afilado</p>
+                    </button>
+                    <button class="filter-btn" id="invert">
+                        <img src="invertir.webp" alt="Invertir">
+                        <p>Invertir</p>
+                    </button>
+                    <button class="filter-btn" id="vintage">
+                        <img src="vintage.jpg" alt="Vintage">
+                        <p>Vintage</p>
+                    </button>
+                    <button class="filter-btn" id="polaroid">
+                        <img src="polaroid.png" alt="Polaroid">
+                        <p>Polaroid</p>
+                    </button>
+                    <button class="filter-btn" id="kodachrome">
+                        <img src="kodachrome.webp" alt="Kodachrome">
+                        <p>Kodachrome</p>
+                    </button>
+                </div>
+                <div class="modal-actions">
+                    <button class="modal-btn" id="applyFilters">Aplicar</button>
+                    <button class="modal-btn" id="cancelFilters">Cancelar</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal de transformar -->
+        <div id="transformModal" class="modal hidden">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Transformar</h2>
+                <div class="transform-options">
+                    <button class="transform-btn" id="flipVertical">
+                        <img src="voltear_vertical.png" alt="Voltear Verticalmente">
+                    </button>
+                    <button class="transform-btn" id="flipHorizontal">
+                        <img src="voltear_horizontal.png" alt="Voltear Horizontalmente">
+                    </button>
+                </div>
+                <div class="modal-actions">
+                    <button class="modal-btn" id="applyTransform">Aplicar</button>
+                    <button class="modal-btn" id="cancelTransform">Cancelar</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal de esquinas -->
+        <div id="cornerModal" class="modal hidden">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Esquinas Redondeadas</h2>
+                <div class="corner-options">
+                    <label for="cornerRadius">Radio de Esquina:</label>
+                    <input type="range" id="cornerRadius" min="0" max="100" value="0">
+                </div>
+                <div class="corner-actions">
+                    <button id="applyCorners">Aplicar</button>
+                    <button id="cancelCorners">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
