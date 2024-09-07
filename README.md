@@ -33,10 +33,6 @@ You can use the app directly via **GitHub Pages**:
 - **CSS3**: Modern, responsive, and elegant styling with shadows, transitions, and gradients.
 - **JavaScript (Vanilla)**: Handling real-time updates to the canvas, applying filters, transformations, and corner rounding.
 
-## **Screenshot**
-
-![Pro Image Editor Screenshot](screenshot.png)
-
 ## **Contributing**
 
 Contributions are welcome! If you have any suggestions or improvements, feel free to open an issue or submit a pull request.
