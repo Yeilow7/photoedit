@@ -1,5 +1,7 @@
 # **Pro Image Editor**
 
+![PhotoEdit Preview](photoedit.png)
+
 **Pro Image Editor** is a simple yet powerful web-based image editing tool that allows users to apply filters, transform (flip) images, and add rounded corners in real-time. The interface is designed to be minimalistic, intuitive, and user-friendly, making it easy for anyone to upload an image, apply various edits, and download the edited image.
 
 ## **Features**
