@@ -160,40 +160,18 @@ cancelCornersBtn.addEventListener('click', () => {
 });
 
 // Aplicar filtros en tiempo real
-document.getElementById('grayscale').addEventListener('click', () => {
-    tempFilter = 'grayscale(100%)';
+const applyFilter = (filter) => {
+    tempFilter = filter;
     applyTemporaryTransformations();
-});
+};
 
-document.getElementById('blackwhite').addEventListener('click', () => {
-    tempFilter = 'contrast(200%) brightness(150%) grayscale(100%)';
-    applyTemporaryTransformations();
-});
-
-document.getElementById('sharpen').addEventListener('click', () => {
-    tempFilter = 'contrast(150%)';
-    applyTemporaryTransformations();
-});
-
-document.getElementById('invert').addEventListener('click', () => {
-    tempFilter = 'invert(100%)';
-    applyTemporaryTransformations();
-});
-
-document.getElementById('vintage').addEventListener('click', () => {
-    tempFilter = 'sepia(100%)';
-    applyTemporaryTransformations();
-});
-
-document.getElementById('polaroid').addEventListener('click', () => {
-    tempFilter = 'contrast(120%) sepia(60%) saturate(150%)';
-    applyTemporaryTransformations();
-});
-
-document.getElementById('kodachrome').addEventListener('click', () => {
-    tempFilter = 'contrast(180%) saturate(120%)';
-    applyTemporaryTransformations();
-});
+document.getElementById('grayscale').addEventListener('click', () => applyFilter('grayscale(100%)'));
+document.getElementById('blackwhite').addEventListener('click', () => applyFilter('contrast(200%) brightness(150%) grayscale(100%)'));
+document.getElementById('sharpen').addEventListener('click', () => applyFilter('contrast(150%)'));
+document.getElementById('invert').addEventListener('click', () => applyFilter('invert(100%)'));
+document.getElementById('vintage').addEventListener('click', () => applyFilter('sepia(100%)'));
+document.getElementById('polaroid').addEventListener('click', () => applyFilter('contrast(120%) sepia(60%) saturate(150%)'));
+document.getElementById('kodachrome').addEventListener('click', () => applyFilter('contrast(180%) saturate(120%)'));
 
 // Confirmar filtros
 applyFiltersBtn.addEventListener('click', () => {
@@ -240,4 +218,17 @@ downloadBtn.addEventListener('click', () => {
     link.download = 'edited-image.png';
     link.href = canvas.toDataURL();
     link.click();
+});
+
+// Función para verificar la compatibilidad del navegador
+function checkBrowserCompatibility() {
+    const canvas = document.createElement('canvas');
+    return !!(canvas.getContext && canvas.getContext('2d'));
+}
+
+// Verificar la compatibilidad al cargar la página
+window.addEventListener('load', () => {
+    if (!checkBrowserCompatibility()) {
+        alert('Su navegador puede no ser compatible con todas las funciones de esta aplicación. Por favor, considere usar un navegador más reciente para una mejor experiencia.');
+    }
 });
